@@ -1,4 +1,4 @@
-# 3Dlearning
+# Learning 3D
 
 ## Stage 1: Convert Depth Map to Normal Map
 
