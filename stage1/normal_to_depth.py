@@ -9,7 +9,11 @@ import argparse
 
 '''
         Sử dụng phương pháp Poisson div(p,q) = dp/dx + dq/dy + 0
-
+            Tính Fourier bằng công thức: 
+                    F(div_pq) = -4 * pi^2 * (u^2 + v^2) * F(z(x,y))
+            Mục tiêu cần tính là z(x,y) 
+            Từ đó, tính hàm ngược của F(z(x,y)) và ta được:
+                    z(x,y) = F^-1( F(div_pq) / (4 * (sin^2(pi * u)+ sin^2(pi * v))))
 '''
 class NormalToDepth:
     def __init__ (self, path: str):
@@ -27,8 +31,8 @@ class NormalToDepth:
         
     def toDepthMap(self, scale = 0.5):
         ''' 
-            Tính đạo hàm 
-            Thêm pad(input, pad, mode='constant', value=0) sau khi tính đạo hàm
+            Tính đạo hàm, sau đó:
+            Thêm pad(input, pad, mode='constant', value=0) để đảm bảo không sai về kích thước ảnh
                         (left, right, top, bottom)
         '''
         dp_dx = self.p[:, 1:] - self.p[:, :-1] 
@@ -36,9 +40,8 @@ class NormalToDepth:
         dq_dy = self.q[1:, :] - self.q[:-1, :]
         dq_dy = F.pad(dq_dy, (0,0,1,0))
         div_pq = dp_dx + dq_dy
-        '''
-            Tính Fourier bằng công thức: F(div_pq) = -4*pi^2*()
-        '''
+            
+        # Tính z(x,y)
         freq_y = torch.fft.fftfreq(self.h, device = self.device).reshape(self.h, 1)
         freq_x = torch.fft.fftfreq(self.w, device = self.device).reshape(1, self.w)
         denom = 4 * (torch.sin(np.pi * freq_x) ** 2 + torch.sin(np.pi * freq_y) ** 2)
@@ -46,6 +49,7 @@ class NormalToDepth:
         div_fft = torch.fft.fft2(div_pq)
         depth_fft = div_fft / denom
         depth = torch.fft.ifft2(depth_fft).real # Lấy phần thực
+            
         # Chuẩn hóa Depth Map
         depth = (depth - depth.min()) / (depth.max() - depth.min() + 1e-6)
         depth = 1.0 - depth
