@@ -29,7 +29,7 @@ class NormalToDepth:
         self.p = -n_x / n_z
         self.q = -n_y / n_z
         
-    def toDepthMap(self, scale = 0.5):
+    def toDepthMap(self, scale = 0.6):
         ''' 
             Tính đạo hàm, sau đó:
             Thêm pad(input, pad, mode='constant', value=0) để đảm bảo không sai về kích thước ảnh
