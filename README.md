@@ -8,6 +8,6 @@ python .\depth_to_normal.py --input B:\FIL\3D\depthmap.png --output normalmap_2.
 ```
   Normal -> Depth map: <br>
 For example, using the command line:
-```
-Hẹ hẹ hẹ
+```bash
+python .\normal_to_depth.py --input B:\FIL\3D\normalmap\normalmap3.png --output B:\FIL\3D\depthmap\depthmap3_reverted.png --view y
 ```
