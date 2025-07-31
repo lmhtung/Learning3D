@@ -59,6 +59,7 @@ class NormalToDepth:
     def save(self, output: str):
         depth_Map = transforms.ToPILImage()(self.depthMap.cpu())
         depth_Map.save(output)
+            
     def view(self, show:str ='y'):
         if show == 'y':
             fig, axs = plt.subplots(1, 2, figsize=(12, 6))
