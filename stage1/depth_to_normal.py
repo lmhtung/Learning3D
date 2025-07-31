@@ -52,7 +52,7 @@ class DepthToNormalMap:
         normal = torch.stack([nx, ny, nz], dim=0)
         normal = normal / torch.norm(normal, dim=0, keepdim=True)
         normal = (normal + 1) / 2  # Đưa về [0,1] để hiển thị
-        # normal = torch.pow(normal, 0.5)  # Gamma correction - Sử dụng để điều chỉnh độ sáng nếu cần
+        # normal = torch.pow(normal, 0.5)  # Gamma correction - Sử dụng để điều chỉnh độ sáng, tương phản nếu cần
         normal = torch.clamp(normal, 0, 1)
 
         self.normalMap = normal
