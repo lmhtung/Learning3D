@@ -1,6 +1,6 @@
 # Learning 3D
 
-## Stage 1: Convert Depth to Normal Map and vice versa
+## Assignment 1: Convert Depth to Normal Map and vice versa
   Depth -> Normal map: <br>
 For example, using the command line:  
 ```bash
