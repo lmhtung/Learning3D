@@ -54,12 +54,11 @@ class NormalToDepth:
         depth = (depth - depth.min()) / (depth.max() - depth.min() + 1e-6)
         depth = 1.0 - depth
         depth = torch.clamp(depth * scale, 0.0, 1.0)
-        # Lưu ảnh 
-        depth_img_tensor = (depth * 255.0).to(torch.uint8).unsqueeze(0)  # Shape [1, H, W]
-        self.depthMap = transforms.ToPILImage()(depth_img_tensor.cpu())
+        self.depthMap = (depth * 255.0).to(torch.uint8).unsqueeze(0)  # Shape [1, H, W]
 
     def save(self, output: str):
-        self.depthMap.save(output)
+        depth_Map = transforms.ToPILImage()(self.depthMap.cpu())
+        depth_Map.save(output)
     def view(self, show:str ='y'):
         if show == 'y':
             fig, axs = plt.subplots(1, 2, figsize=(12, 6))
@@ -68,7 +67,7 @@ class NormalToDepth:
             axs[0].set_title('Normal Map')
             axs[0].axis('off')
             # Hiển thị Depth Map
-            axs[1].imshow(np.array(self.depthMap), cmap ='gray')
+            axs[1].imshow(self.depthMap.squeeze(0).cpu().numpy(), cmap ='gray')
             axs[1].set_title('Depth Map')
             axs[1].axis('off')
 
