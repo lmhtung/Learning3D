@@ -12,7 +12,9 @@ For example, using the command line:
 python .\normal_to_depth.py --input B:\FIL\3D\normalmap\normalmap3.png --output B:\FIL\3D\depthmap\depthmap3_reverted.png --view y
 ```
 ## Assignment 1: Rendering First Object
-  Set up: <br>
+  Set up for Windows: <br>
+  Install Build Tools: https://visualstudio.microsoft.com/visual-cpp-build-tools/ <br>
+  Choose: Desktop development with C++
 ```bash
 conda create -n learning3d python=3.10 
 conda activate learning3d 
@@ -21,9 +23,8 @@ pip install fvcore iopath
 conda install numpy matplotlib imageio scikit-image plotly
 pip install opencv-python
 pip install black usort flake8 flake8-bugbear flake8-comprehensions
+git clone https://github.com/facebookresearch/pytorch3d.git
+cd pytorch3d
+python setup.py install
 ```
-  Normal -> Depth map: <br>
-For example, using the command line:
-```bash
-python .\normal_to_depth.py --input B:\FIL\3D\normalmap\normalmap3.png --output B:\FIL\3D\depthmap\depthmap3_reverted.png --view y
-```
+
