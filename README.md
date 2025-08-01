@@ -27,4 +27,14 @@ git clone https://github.com/facebookresearch/pytorch3d.git
 cd pytorch3d
 python setup.py install
 ```
-
+  Set up for Ubuntu: <br>
+```
+conda create -n learning3d python=3.10 
+conda activate learning3d 
+conda install pytorch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0  pytorch-cuda=11.8 -c pytorch -c nvidia
+pip install fvcore iopath
+conda install numpy matplotlib imageio scikit-image plotly
+pip install opencv-python
+MAX_JOBS=8 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
+pip install -r requirements.txt
+```
