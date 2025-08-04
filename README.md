@@ -73,7 +73,7 @@ meshes = meshes.to(device)
 ``` 
 ### Setting up camera
 ``` bash
-R = torch.eye(3).unsqueeze(0) # Create projection matrix E for rotation 
+R = torch.eye(3).unsqueeze(0) # Creating rotation matrix E for rotation 
 T = torch.tensor([[0, 0, 3]]) # Translation vector 
 fov = 60
 cameras = pytorch3d.renderer.FoVPerspectiveCameras(
