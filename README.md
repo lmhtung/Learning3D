@@ -12,7 +12,7 @@ For example, using the command line:
 python .\normal_to_depth.py --input B:\FIL\3D\normalmap\normalmap3.png --output B:\FIL\3D\depthmap\depthmap3_reverted.png --view y
 ```
 ## Assignment 1: Rendering First Object
-  Set up for Windows with Conda: <br>
+  Setting up for Windows with Conda: <br>
   Install Build Tools: https://visualstudio.microsoft.com/visual-cpp-build-tools/ <br>
   Choose: Desktop development with C++
 ```bash
@@ -27,7 +27,7 @@ git clone https://github.com/facebookresearch/pytorch3d.git
 cd pytorch3d
 python setup.py install
 ```
-  Set up for Ubuntu with Conda: <br>
+  Setting up for Linux with Conda: <br>
 ```
 conda create -n learning3d python=3.10 
 conda activate learning3d 
