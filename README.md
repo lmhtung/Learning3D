@@ -71,7 +71,6 @@ meshes = pytorch3d.structures.Meshes(
 )
 meshes = meshes.to(device)
 ``` 
-*References: http://www.codinglabs.net/article_world_view_projection_matrix.aspx <br>
 ### Setting up camera
 ``` bash
 R = torch.eye(3).unsqueeze(0) # Create projection matrix E for rotation 
@@ -89,6 +88,7 @@ cameras.get_camera_center() #
 transform = cameras.get_world_to_view_transform()
 transform.get_matrix()
 ```
+*References: http://www.codinglabs.net/article_world_view_projection_matrix.aspx <br>
 ### Setting up pipeline renderer 
 ``` bash 
 image_size = 512
@@ -110,3 +110,13 @@ image = renderer(meshes, cameras=cameras, lights=lights)
 plt.imshow(image[0].cpu().numpy())
 ```
 <img width="856" height="821" alt="image" src="https://github.com/user-attachments/assets/07ba6836-ee60-469a-b7b1-f19208536895" />
+Plot scene: <br>
+```bash
+plot_scene({
+    "figure": {
+        "Mesh": meshes,
+        "Camera": cameras,
+    }
+})
+```
+<img width="778" height="671" alt="image" src="https://github.com/user-attachments/assets/3b7b494d-cd78-4b45-b3dd-6ee48f60c035" />
