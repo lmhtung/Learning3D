@@ -109,7 +109,8 @@ lights = pytorch3d.renderer.PointLights(location=[[0, 0, -3]], device=device)
 image = renderer(meshes, cameras=cameras, lights=lights)
 plt.imshow(image[0].cpu().numpy())
 ```
-<img width="856" height="821" alt="image" src="https://github.com/user-attachments/assets/07ba6836-ee60-469a-b7b1-f19208536895" />
+<img width="856" height="821" alt="image" src="https://github.com/user-attachments/assets/07ba6836-ee60-469a-b7b1-f19208536895" /> <br>
+
 Plot scene: <br>
 ```bash
 plot_scene({
@@ -119,4 +120,4 @@ plot_scene({
     }
 })
 ```
-<img width="778" height="671" alt="image" src="https://github.com/user-attachments/assets/3b7b494d-cd78-4b45-b3dd-6ee48f60c035" />
+<img width="778" height="671" alt="image" src="https://github.com/user-attachments/assets/3b7b494d-cd78-4b45-b3dd-6ee48f60c035" /> <br>
