@@ -51,3 +51,62 @@ pip install opencv-python
 MAX_JOBS=8 pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 pip install -r requirements.txt
 ```
+### Create a mesh
+```bash 
+vertices, face_props, text_props = pytorch3d.io.load_obj("data/cow.obj") # Load object.obj from folder 
+faces = face_props.verts_idx # Getting vertices index (Including 3 vertices)
+vertices = vertices.unsqueeze(0)  # 1 x N_v x 3
+faces = faces.unsqueeze(0)  # 1 x N_f x 3
+
+texture_rgb = torch.ones_like(vertices) # N x 3
+texture_rgb = texture_rgb * torch.tensor([1.0, 1.0, 0]) # RGB color coefficient such as [1.0, 1.0, 0]: yellow 
+textures = pytorch3d.renderer.TexturesVertex(texture_rgb) # Creating texture for each pixel
+print(texture_rgb)
+print(texture_rgb.shape)
+
+meshes = pytorch3d.structures.Meshes(
+    verts = vertices,
+    faces = faces,
+    textures = textures,
+)
+meshes = meshes.to(device)
+``` 
+*References: http://www.codinglabs.net/article_world_view_projection_matrix.aspx <br>
+### Setting up camera
+``` bash
+R = torch.eye(3).unsqueeze(0) # Create projection matrix E for rotation 
+T = torch.tensor([[0, 0, 3]]) # Translation vector 
+fov = 60
+cameras = pytorch3d.renderer.FoVPerspectiveCameras(
+    R = R,
+    T = T,
+    fov = fov,
+    device = device,
+)
+
+cameras.get_camera_center() #
+
+transform = cameras.get_world_to_view_transform()
+transform.get_matrix()
+```
+### Setting up pipeline renderer 
+``` bash 
+image_size = 512
+
+raster_settings = pytorch3d.renderer.RasterizationSettings(image_size = image_size)
+rasterizer = pytorch3d.renderer.MeshRasterizer(
+    raster_settings = raster_settings,
+)
+shader = pytorch3d.renderer.HardPhongShader(device = device)
+renderer = pytorch3d.renderer.MeshRenderer(
+    rasterizer = rasterizer,
+    shader = shader,
+)
+```
+### Render an image 2D (+lights)
+``` bash
+lights = pytorch3d.renderer.PointLights(location=[[0, 0, -3]], device=device)
+image = renderer(meshes, cameras=cameras, lights=lights)
+plt.imshow(image[0].cpu().numpy())
+```
+<img width="856" height="821" alt="image" src="https://github.com/user-attachments/assets/07ba6836-ee60-469a-b7b1-f19208536895" />
