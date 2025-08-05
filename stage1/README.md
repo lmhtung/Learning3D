@@ -11,7 +11,7 @@ For example, using the command line:
 ```bash
 python .\normal_to_depth.py --input B:\FIL\3D\normalmap\normalmap3.png --output B:\FIL\3D\depthmap\depthmap3_reverted.png --view y
 ```
-## Assignment 1: Rendering First Object
+## Assignment 1: (100 points)
   Setting up for Windows with Conda: <br>
   Install Build Tools: https://visualstudio.microsoft.com/visual-cpp-build-tools/ <br>
   Choose: Desktop development with C++
@@ -121,10 +121,10 @@ plot_scene({
 })
 ```
 <img width="778" height="671" alt="image" src="https://github.com/user-attachments/assets/3b7b494d-cd78-4b45-b3dd-6ee48f60c035" /> <br>
-### Render an gif 
+### Render an gif (5 points)
 For example: 
 ``` bash
 python render_360.py --num_frames 60
 ```
 ![cow_gif](https://github.com/user-attachments/assets/9ac5f0bc-104e-4a71-8339-04ac7756fe7f) <br>
-
+### Re-creating the Dolly Zoom (10 points)
