@@ -128,3 +128,6 @@ python render_360.py --num_frames 60
 ```
 ![cow_gif](https://github.com/user-attachments/assets/9ac5f0bc-104e-4a71-8339-04ac7756fe7f) <br>
 ### Re-creating the Dolly Zoom (10 points)
+Formula: 
+<img width="571" height="149" alt="image" src="https://github.com/user-attachments/assets/75cba316-dd98-4fdf-88bc-2e53c578eda2" /> <br>
+
