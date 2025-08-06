@@ -135,4 +135,16 @@ Formula:
 python dolly_zoom.py 
 ```
 ![dolly](https://github.com/user-attachments/assets/2446ffd1-17d8-49f8-931f-383cd0d4c3b4) <br>
-
+### Constructing a Tetrahedron (5 points)
+```bash
+  python tetraHedron.py
+```
+### Constructing a Cube (5 points)
+```bash
+  python cube.py
+```
+![cube](https://github.com/user-attachments/assets/40b2847c-37c3-4e97-8488-a1be3b4bb762) <br>
+### Re-texturing a mesh (10 points)
+### Camera Transformations (10 points)
+### Rendering Generic 3D Representations (45 Points)
+### Rendering Point Clouds from RGB-D Images (10 points)
