@@ -134,3 +134,5 @@ Formula:
 ``` bash
 python dolly_zoom.py 
 ```
+![dolly](https://github.com/user-attachments/assets/2446ffd1-17d8-49f8-931f-383cd0d4c3b4) <br>
+
