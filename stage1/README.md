@@ -145,6 +145,10 @@ python dolly_zoom.py
 ```
 ![cube](https://github.com/user-attachments/assets/40b2847c-37c3-4e97-8488-a1be3b4bb762) <br>
 ### Re-texturing a mesh (10 points)
+```bash
+python render_360_color.py
+```
+![cow_color](https://github.com/user-attachments/assets/3498fef7-f06b-430f-a1bf-aff298093644) <br>
 ### Camera Transformations (10 points)
 ### Rendering Generic 3D Representations (45 Points)
 ### Rendering Point Clouds from RGB-D Images (10 points)
