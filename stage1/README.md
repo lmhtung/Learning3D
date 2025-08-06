@@ -151,4 +151,9 @@ python render_360_color.py
 ![cow_color](https://github.com/user-attachments/assets/3498fef7-f06b-430f-a1bf-aff298093644) <br>
 ### Camera Transformations (10 points)
 ### Rendering Generic 3D Representations (45 Points)
+```bash
+python render_bridge.py
+```
+<img width="256" height="256" alt="bridge_pcld" src="https://github.com/user-attachments/assets/314e3520-3d62-4d90-b38e-6d0aedc2bc85" /> <br>
+
 ### Rendering Point Clouds from RGB-D Images (10 points)
