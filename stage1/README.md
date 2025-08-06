@@ -131,4 +131,6 @@ python render_360.py --num_frames 60
 Formula: 
 
 <img width="571" height="149" alt="image" src="https://github.com/user-attachments/assets/75cba316-dd98-4fdf-88bc-2e53c578eda2" /> <br>
-
+``` bash
+python dolly_zoom.py 
+```
