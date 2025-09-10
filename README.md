@@ -1,4 +1,6 @@
 # Learning 3D
 
-## Assignment 0+1: stage1 
-## Assignment 2: stage2
+## stage1: assignment1 + converting map  
+## stage2: assignment2 + analysis
+## stage3: assignment3
+## stage4: assignment4
